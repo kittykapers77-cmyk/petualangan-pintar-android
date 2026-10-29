@@ -39,10 +39,10 @@ jobs:
 
       - name: Siapkan Android SDK
         run: |
-          sdkmanager --update
-          sdkmanager --licenses </dev/null || true
-          sdkmanager "platform-tools"
-
+          echo "ANDROID_HOME=$ANDROID_HOME"
+          echo "SDKMANAGER=$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platform-tools"
       - name: Siapkan debug keystore
         working-directory: android-project
         run: |
