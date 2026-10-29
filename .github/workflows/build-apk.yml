@@ -34,7 +34,7 @@ jobs:
           accept-android-sdk-licenses: true
           log-accepted-android-sdk-licenses: false
 
-        uses: android-actions/setup-android@v3
+
 
       - name: Ekstrak proyek ZIP
         run: |
