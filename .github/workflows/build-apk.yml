@@ -37,12 +37,11 @@ jobs:
           mkdir android-project
           unzip -q "$ZIP_FILE" -d android-project
 
-      - name: Siapkan Android SDK
+            - name: Siapkan Android SDK
         run: |
-          echo "ANDROID_HOME=$ANDROID_HOME"
-          echo "SDKMANAGER=$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
-          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses
-          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platform-tools"
+          yes | sdkmanager --licenses
+          sdkmanager "platform-tools"
+      
       - name: Siapkan debug keystore
         working-directory: android-project
         run: |
