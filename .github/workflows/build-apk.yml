@@ -37,10 +37,11 @@ jobs:
           mkdir android-project
           unzip -q "$ZIP_FILE" -d android-project
 
-      - name: Siapkan SDK Android
+      - name: Siapkan Android SDK
         run: |
-          yes | sdkmanager --licenses
-          sdkmanager "platforms;android-36" "build-tools;36.0.0"
+          sdkmanager --update
+          sdkmanager --licenses </dev/null || true
+          sdkmanager "platform-tools"
 
       - name: Siapkan debug keystore
         working-directory: android-project
